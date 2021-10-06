@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/********************************************* GLOBAL STYLES *********************************************/
+
+:root {
+    --dark-background: #2E3F7F;
+    --light-background: #5199FF;
+    --text-color: #07315c;
+    --input-color: #b9daf5;
+    --focus-color: #557ea7;
+    --light-red: #F85C50;
+    --red: #EE3D48;
+    --gold: #f1cb0e;
+    --white: #fff;
+    --milk: #E5F0FF;
+    --yellow: #dbdb12;
+    --main-width: 500px;
+    --radius: 0.5rem;
+    --more-space: 0.2rem;
+    --less-space: 0.1rem;
+    --transition: all 0.5s ease;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+*::selection {
+    background-color: var(--gold);
+    color: var(--text-color);
+}
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(var(--dark-background), var(--light-background));
+    color: var(--text-color);
+    font-size: 1rem;
+}
+h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+    line-height: 1;
+    text-transform: capitalize;
+    letter-spacing: var(--more-space);
+}
+input, select {
+    height: 2rem;
+    border: none;
+    border-radius: var(--radius);
+    background-color: var(--input-color);
+    color: var(--text-color);
+    font-size: 1rem; 
+}
+input:focus, select:focus {
+    outline: none;
+    background-color: var(--focus-color);
+    color: var(--white);
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--less-space);
+}
+button {
+    height: 2rem;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance:textfield;
+}   
+
+/********************************************* CURRENCY CONVERTER *********************************************/
+
+.converter {
+    max-width: var(--main-width);
+    width: 90vw;
+    padding: 2rem;
+    border-radius: var(--radius);
+    background-color: var(--milk);
+}
+.conversion-form input {
+    width: 100%;
+    padding: 0 0.5rem;
+}
+.conversion-form select {
+    width: 8rem;
+    padding-left: 0.5rem;
+}
+.conversion-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 2rem 0;
+}
+.swap-btn {
+    width: 2rem;
+    display: grid;
+    place-items: center;
+    background-color: var(--focus-color);
+    color: var(--white);
+}
+.swap-btn:hover {
+    background-color: var(--dark-background);
+}
+.exchange-rate {
+    margin: 2rem 0;
+    text-align: center;
+}
+.btn-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+}
+.btn-container > * {
+    width: 8rem;
+    background-color: var(--yellow);
+    color: var(--text-color);
+    text-transform: capitalize;
+    letter-spacing: var(--less-space);
+}
+.reset-btn {
+    background-color: var(--light-red);
+    color: var(--white);
+}
+.reset-btn:hover {
+    background-color: var(--red);
+}
+.convert-btn:hover {
+    background-color: var(--gold);
+}
