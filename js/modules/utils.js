@@ -6,8 +6,19 @@ const fetchData = async (url) => {
         const data = await response.json();
         return data;  
     } catch (error) {
+        document.querySelector('.exchange-result').innerHTML = `<p>Sorry, something went wrong...</p>`;
         console.log(error);
     }
 };
 
-export {API_KEY, fetchData};
+const setThemeSwitcher = () => {
+    document.querySelector('.theme-switcher').addEventListener('click', () => {
+        document.body.classList.toggle('night');
+    });
+};
+
+const hidePreloader = () => {
+    document.querySelector('.preloader').classList.add('hide');
+};
+
+export {API_KEY, fetchData, setThemeSwitcher, hidePreloader};

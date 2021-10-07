@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 </head>
 <body>
+    <div class="preloader">
+        <span></span>
+    </div>
     <div class="converter">
+        <button class="theme-switcher">
+            <i class="fas fa-lightbulb"></i>
+        </button>
         <h1>Currency converter</h1>
         <form class="conversion-form">
             <label for="convert-amount">Amount to convert:</label>
@@ -17,22 +23,18 @@
             <div class="conversion-settings">
                 <div>
                     <label for="convert-from">From:</label>
-                    <select id="convert-from">
-                        <option value="one">Select one</option>
-                    </select>
+                    <select id="convert-from"></select>
                 </div>
                 <div class="flags-container">
-                    <img src="https://www.countryflags.io/us/shiny/48.png" alt="flag">
+                    <img src="https://www.countryflags.io/ae/shiny/48.png" alt="flag">
                     <button type="button" class="swap-btn">
                         <i class="fas fa-sync-alt"></i>
                     </button>
-                    <img src="https://www.countryflags.io/ca/shiny/48.png" alt="flag">
+                    <img src="https://www.countryflags.io/ae/shiny/48.png" alt="flag">
                 </div>
                 <div>
                     <label for="convert-to">To:</label>
-                    <select id="convert-to">
-                        <option value="two">Select two</option>
-                    </select>
+                    <select id="convert-to"></select>
                 </div>
             </div>
             <div class="exchange-result">

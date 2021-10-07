@@ -79,7 +79,7 @@ const setConverter = (data) => {
                 return;    
             }
             const result = (amount * exchangeRate).toFixed(2);
-            resultDOM.innerHTML = `<p>Exchange rate: <span>${exchangeRate}</span><p>
+            resultDOM.innerHTML = `<p>Exchange rate: <span>${exchangeRate}</span></p>
                                    <p>Result: <span>${result}</span></p>`;
         }
     });
