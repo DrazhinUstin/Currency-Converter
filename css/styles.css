@@ -30,6 +30,18 @@
     background-color: var(--gold);
     color: var(--text-color);
 }
+::placeholder {
+    color: var(--text-color);
+    opacity: 0.8; 
+}
+:-ms-input-placeholder { 
+    color: var(--text-color);
+    opacity: 0.8;
+}  
+::-ms-input-placeholder { 
+    color: var(--text-color);
+    opacity: 0.8;
+}
 body {
     min-height: 100vh;
     display: grid;
@@ -44,6 +56,9 @@ h1 {
     line-height: 1;
     text-transform: capitalize;
     letter-spacing: var(--more-space);
+}
+p {
+    line-height: 1.5;
 }
 input, select {
     height: 2rem;
@@ -79,7 +94,7 @@ input[type=number]::-webkit-inner-spin-button {
 }
 input[type=number] {
     -moz-appearance:textfield;
-}   
+} 
 
 /********************************************* CURRENCY CONVERTER *********************************************/
 
@@ -95,15 +110,20 @@ input[type=number] {
     padding: 0 0.5rem;
 }
 .conversion-form select {
-    width: 8rem;
+    width: 6rem;
     padding-left: 0.5rem;
 }
 .conversion-settings {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     margin: 2rem 0;
 }
+.flags-container {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+}  
 .swap-btn {
     width: 2rem;
     display: grid;
@@ -114,9 +134,17 @@ input[type=number] {
 .swap-btn:hover {
     background-color: var(--dark-background);
 }
-.exchange-rate {
+.exchange-result {
+    height: 3rem;
+    display: grid;
+    place-items: center;
     margin: 2rem 0;
-    text-align: center;
+    font-style: italic;
+    text-transform: capitalize;
+    letter-spacing: var(--less-space);
+}
+.exchange-result span {
+    color: var(--light-red);
 }
 .btn-container {
     display: flex;
