@@ -1,6 +1,6 @@
-import {API_KEY, fetchData} from './utils.js';
+import {API_KEY, fetchData, saveToStorage} from './utils.js';
 
-const setConverter = (data) => {
+const setConverter = (data, settings) => {
 
     const form = document.querySelector('.conversion-form');
     const input = document.getElementById('convert-amount');
@@ -17,6 +17,12 @@ const setConverter = (data) => {
         symbols.sort();
         selects.forEach(elem => {
             elem.innerHTML = symbols.map(symbol => {
+                if (symbol === settings.valueFrom && elem.id === 'convert-from') {
+                    return `<option value="${symbol}" selected>${symbol}</option>`;
+                }
+                if (symbol === settings.valueTo && elem.id === 'convert-to') {
+                    return `<option value="${symbol}" selected>${symbol}</option>`;
+                } 
                 return `<option value="${symbol}">${symbol}</option>`;
             }).join('');
         });
@@ -48,18 +54,32 @@ const setConverter = (data) => {
     });
 
     selects.forEach(elem => {
-        elem.addEventListener('change', loadFlags);
+        elem.addEventListener('change', event => {
+            const target = event.currentTarget;
+            if (target.id === 'convert-from') {
+                settings.valueFrom = target.value;
+            }
+            if (target.id === 'convert-to') {
+                settings.valueTo = target.value;
+            }
+            loadFlags();
+            saveToStorage('settings', settings);
+        });
     });
 
     swapBtn.addEventListener('click', () => {
         const savedValue = selects[0].value;
         selects[0].value = selects[1].value;
         selects[1].value = savedValue;
+        settings.valueFrom = selects[0].value;
+        settings.valueTo = selects[1].value;
         loadFlags();
+        saveToStorage('settings', settings);
     });
 
     resetBtn.addEventListener('click', () => {
-        window.location.reload();
+        input.value = '';
+        resultDOM.innerHTML = `<p>Welcome to the world of currencies!</p>`;
     });
 
     form.addEventListener('submit', async (event) => {

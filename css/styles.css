@@ -20,6 +20,7 @@
     --more-space: 0.2rem;
     --less-space: 0.1rem;
     --transition: all 0.5s ease;
+    --long-transition: all 0.8s ease;
 }
 * {
     margin: 0;
@@ -77,6 +78,7 @@ input:focus, select:focus {
 label {
     display: block;
     margin-bottom: 0.5rem;
+    line-height: 1;
     text-transform: capitalize;
     letter-spacing: var(--less-space);
 }
@@ -111,9 +113,11 @@ input[type=number] {
         font-size: 0.9rem;
     }
     input, select {
+        height: 1.8rem;
         font-size: 0.9rem; 
     }
     button {
+        height: 1.8rem;
         font-size: 0.9rem;
     }
 }
@@ -129,7 +133,7 @@ input[type=number] {
     display: grid;
     place-items: center;
     background-color: var(--milk);
-    transition: var(--transition);
+    transition: var(--long-transition);
     z-index: 999;
 }
 .preloader.hide {
@@ -257,6 +261,12 @@ input[type=number] {
     }
     .flags-container {
         column-gap: 0.25rem;
+    }
+    .swap-btn {
+        width: 1.8rem;
+    }
+    .exchange-result {
+        height: 2.8rem;
     } 
 }
 
