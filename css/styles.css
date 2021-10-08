@@ -20,7 +20,6 @@
     --more-space: 0.2rem;
     --less-space: 0.1rem;
     --transition: all 0.5s ease;
-    --long-transition: all 0.8s ease;
 }
 * {
     margin: 0;
@@ -133,7 +132,7 @@ input[type=number] {
     display: grid;
     place-items: center;
     background-color: var(--milk);
-    transition: var(--long-transition);
+    transition: var(--transition);
     z-index: 999;
 }
 .preloader.hide {

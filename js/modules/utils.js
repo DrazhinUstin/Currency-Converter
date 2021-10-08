@@ -33,7 +33,9 @@ const setThemeSwitcher = (settings) => {
 };
 
 const hidePreloader = () => {
-    document.querySelector('.preloader').classList.add('hide');
+    setTimeout(() => {
+        document.querySelector('.preloader').classList.add('hide');
+    }, 300);
 };
 
 export {API_KEY, fetchData, getFromStorage, saveToStorage, setThemeSwitcher, hidePreloader};
