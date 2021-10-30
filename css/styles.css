@@ -3,15 +3,16 @@
 /********************************************* GLOBAL STYLES *********************************************/
 
 :root {
-    --dark-background: #2E3F7F;
-    --light-background: #5199FF;
-    --text-color: #07315c;
+    --primary-color-1: #5199FF;
+    --primary-color-2: #3f55ab;
+    --primary-color-3: #294099;
+    --primary-color-4: #07315c;
     --input-color: #b9daf5;
     --focus-color: #557ea7;
-    --red: #EE3D48;
     --light-red: #F85C50;
-    --gold: #f1cb0e;
+    --red: #EE3D48;
     --yellow: #dbdb12;
+    --gold: #f1cb0e;
     --dark-white: #aac0db;
     --white: #fff;
     --milk: #E5F0FF;
@@ -21,79 +22,90 @@
     --less-space: 0.1rem;
     --transition: all 0.5s ease;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
 *::selection {
     background-color: var(--gold);
-    color: var(--text-color);
+    color: var(--primary-color-4);
 }
+
 ::placeholder {
-    color: var(--text-color);
+    color: var(--primary-color-4);
     opacity: 0.8; 
 }
+
 :-ms-input-placeholder { 
-    color: var(--text-color);
+    color: var(--primary-color-4);
     opacity: 0.8;
 }  
+
 ::-ms-input-placeholder { 
-    color: var(--text-color);
+    color: var(--primary-color-4);
     opacity: 0.8;
 }
+
 body {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: linear-gradient(var(--dark-background), var(--light-background));
-    color: var(--text-color);
-    font-size: 1rem;
+    background: linear-gradient(var(--primary-color-2), var(--primary-color-1));
+    color: var(--primary-color-4);
+    line-height: 1;
 }
+
 h1 {
     margin-bottom: 2rem;
     text-align: center;
-    line-height: 1;
     text-transform: capitalize;
     letter-spacing: var(--more-space);
 }
+
 p {
     line-height: 1.5;
 }
+
 input, select {
-    height: 2rem;
+    height: 2.2rem;
     border: none;
     border-radius: var(--radius);
     background-color: var(--input-color);
-    color: var(--text-color);
+    color: var(--primary-color-4);
     font-size: 1rem; 
 }
+
 input:focus, select:focus {
     outline: none;
     background-color: var(--focus-color);
     color: var(--white);
 }
+
 label {
     display: block;
     margin-bottom: 0.5rem;
-    line-height: 1;
     text-transform: capitalize;
     letter-spacing: var(--less-space);
 }
+
 button {
-    height: 2rem;
     border: none;
     border-radius: var(--radius);
     font-size: 1rem;
     cursor: pointer;
     transition: var(--transition);
 }
+
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 input[type=number] {
     -moz-appearance:textfield;
 }
@@ -109,15 +121,14 @@ input[type=number] {
         font-size: 1.4rem;
     }
     body {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
     input, select {
-        height: 1.8rem;
-        font-size: 0.9rem; 
+        height: 2rem;
+        font-size: 0.95rem; 
     }
     button {
-        height: 1.8rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 }
 
@@ -143,8 +154,8 @@ input[type=number] {
     width: 5rem;
     height: 5rem;
     display: block;
-    border: 0.5rem solid var(--light-background);
-    border-bottom-color: var(--milk);
+    border: 0.5rem solid var(--primary-color-1);
+    border-bottom-color: transparent;
     border-radius: 50%;
     background-color: inherit;
     animation: loading 0.5s linear 0s infinite;
@@ -152,62 +163,73 @@ input[type=number] {
 
 @keyframes loading {
     0% {
-        transform: rotate(0deg);
+        transform: rotate(0);
     }
     100% {
         transform: rotate(360deg);
     }
 }
 
-/********************************************* CURRENCY CONVERTER *********************************************/
+/********************************************* CONVERTER *********************************************/
 
 .converter {
     position: relative;
     max-width: var(--main-width);
+    max-height: 95vh;
     width: 90vw;
     padding: 2rem;
     border-radius: var(--radius);
+    overflow-y: auto;
     background-color: var(--milk);
 }
+
 .theme-switcher {
     position: absolute;
     top: 0.8rem;
     right: 0.8rem;
-    height: unset;
     background-color: inherit;
-    color: var(--text-color);
+    color: var(--primary-color-4);
     font-size: 1.2rem;
+    line-height: 1;
     transition: unset;
 }
+
 .conversion-form input {
     width: 100%;
     padding: 0 0.5rem;
 }
+
 .conversion-form select {
     width: 6rem;
     padding-left: 0.5rem;
 }
+
 .conversion-settings {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 2rem 0;
 }
+
 .flags-container {
     display: flex;
     align-items: center;
     column-gap: 0.5rem;
 }  
+
 .swap-btn {
     width: 2rem;
+    height: 2rem;
     display: grid;
     place-items: center;
     background-color: var(--focus-color);
     color: var(--white);
 }
+
 .swap-btn:hover {
-    background-color: var(--dark-background);
+    background-color: var(--primary-color-2);
 }
+
 .exchange-result {
     height: 3rem;
     display: grid;
@@ -218,28 +240,35 @@ input[type=number] {
     text-transform: capitalize;
     letter-spacing: var(--less-space);
 }
+
 .exchange-result span {
     color: var(--light-red);
 }
+
 .btn-container {
     display: flex;
     justify-content: center;
     column-gap: 1rem;
 }
+
 .btn-container > * {
     width: 8rem;
+    height: 2.2rem;
     background-color: var(--yellow);
-    color: var(--text-color);
+    color: var(--primary-color-4);
     text-transform: capitalize;
     letter-spacing: var(--less-space);
 }
+
 .reset-btn {
     background-color: var(--light-red);
     color: var(--white);
 }
+
 .reset-btn:hover {
     background-color: var(--red);
 }
+
 .convert-btn:hover {
     background-color: var(--gold);
 }
@@ -263,9 +292,13 @@ input[type=number] {
     }
     .swap-btn {
         width: 1.8rem;
+        height: 1.8rem;
     }
     .exchange-result {
         height: 2.8rem;
+    }
+    .btn-container > * {
+        height: 2rem;
     } 
 }
 
@@ -276,27 +309,37 @@ input[type=number] {
     }
     .flags-container {
         flex-flow: column wrap;
+        row-gap: 0.5rem;
     }
 }
 
 /********************************************* NIGHT THEME *********************************************/
 
 body.night {
-    background: linear-gradient(var(--dark-background), var(--text-color));
+    background: linear-gradient(var(--primary-color-3), var(--primary-color-4));
 }
+
 .night .converter {
     background-color: var(--focus-color);
 }
+
 .night .theme-switcher {
     color: var(--yellow);
 }
+
 .night input, .night select {
     background-color: var(--dark-white);
 } 
+
 .night input:focus, .night select:focus {
     background-color: var(--yellow);
-    color: var(--text-color);
+    color: var(--primary-color-4);
 }
+
+.night .swap-btn:hover {
+    background-color: var(--primary-color-3);
+}
+
 .night .exchange-result span {
     color: var(--white);
 }

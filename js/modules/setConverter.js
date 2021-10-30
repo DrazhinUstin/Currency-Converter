@@ -30,10 +30,10 @@ const setConverter = (data, settings) => {
     };
 
     const loadFlags = () => {
-        const firstCode = selects[0].value.slice(0, 2);
-        const secondCode = selects[1].value.slice(0, 2);
-        flags[0].src = `https://www.countryflags.io/${firstCode}/shiny/48.png`;
-        flags[1].src = `https://www.countryflags.io/${secondCode}/shiny/48.png`;
+        const firstCode = selects[0].value.slice(0, 2).toLowerCase();
+        const secondCode = selects[1].value.slice(0, 2).toLowerCase();
+        flags[0].src = `https://flagcdn.com/48x36/${firstCode}.png`;
+        flags[1].src = `https://flagcdn.com/48x36/${secondCode}.png`;
     };
 
     const getExchangeRate = async () => {
@@ -46,7 +46,7 @@ const setConverter = (data, settings) => {
 
     input.addEventListener('input', () => {
         const value = input.value;
-        const maxLength = 9;
+        const maxLength = 10;
         if (value.length > maxLength) {
             input.value = value.slice(0, maxLength);
         }
